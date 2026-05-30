@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://y3hiy0cq08f6"]
+
+[ext_resource type="Texture2D" uid="uid://bkni6gqoba17f" path="res://assets/backgroundcombat.png" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://dcx6onnvjvpwc" path="res://scenes/shop.tscn" id="2_72e8q"]
+[ext_resource type="PackedScene" uid="uid://d4fvcjnvy5b4b" path="res://scenes/card_ui.tscn" id="3_d2op2"]
+
+[node name="main game" type="Node" unique_id=1286117251]
+
+[node name="world" type="Node2D" parent="." unique_id=1731972025]
+
+[node name="levels" type="Node2D" parent="world" unique_id=59573341]
+
+[node name="combat" type="Node2D" parent="world/levels" unique_id=1762121394]
+
+[node name="background" type="Sprite2D" parent="world/levels/combat" unique_id=1974279806]
+scale = Vector2(1.1487778, 1.1487778)
+texture = ExtResource("1_s3esy")
+centered = false
+
+[node name="shop" parent="world/levels" unique_id=1545939292 instance=ExtResource("2_72e8q")]
+
+[node name="entities" type="Node2D" parent="world" unique_id=280364025]
+
+[node name="systems" type="Node" parent="." unique_id=199827437]
+
+[node name="spawn manager" type="Node" parent="systems" unique_id=1937061834]
+
+[node name="hud" type="CanvasLayer" parent="." unique_id=732288975]
+
+[node name="hud root" type="Control" parent="hud" unique_id=264021336]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="shop" type="CanvasLayer" parent="hud/hud root" unique_id=448155464]
+
+[node name="shop cards" type="HBoxContainer" parent="hud/hud root/shop" unique_id=511901076]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 300.0
+offset_right = 321.0
+offset_bottom = 475.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="cardui" parent="hud/hud root/shop/shop cards" unique_id=485687244 instance=ExtResource("3_d2op2")]
+layout_mode = 2
+
+[node name="cardui2" parent="hud/hud root/shop/shop cards" unique_id=813574814 instance=ExtResource("3_d2op2")]
+layout_mode = 2
+
+[node name="cardui3" parent="hud/hud root/shop/shop cards" unique_id=2115733190 instance=ExtResource("3_d2op2")]
+layout_mode = 2
+
+[node name="cardui4" parent="hud/hud root/shop/shop cards" unique_id=1234793610 instance=ExtResource("3_d2op2")]
+layout_mode = 2
+
+[node name="cardui5" parent="hud/hud root/shop/shop cards" unique_id=557488914 instance=ExtResource("3_d2op2")]
+layout_mode = 2
+
+[node name="pause" type="CanvasLayer" parent="." unique_id=1700093524]
+
+[node name="pause root" type="Control" parent="pause" unique_id=1331358986]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dby0pgpxyu4dg"]
+
+[ext_resource type="FontFile" uid="uid://bg0ads20637p5" path="res://assets/pixel_rpg.ttf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+default_font_size = 18
