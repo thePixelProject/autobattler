@@ -1,20 +1,28 @@
 [gd_scene format=3 uid="uid://dcx6onnvjvpwc"]
 
-[ext_resource type="Texture2D" uid="uid://cgddk43lc0u0q" path="res://assets/shop.png" id="1_lx5au"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx5au"]
 size = Vector2(1920, 540)
 
-[node name="shop" type="Node2D" unique_id=1545939292]
+[node name="Shop" type="Node2D" unique_id=1545939292]
 
-[node name="background" type="Sprite2D" parent="." unique_id=1912840635]
-scale = Vector2(1.1487778, 1.1487778)
-texture = ExtResource("1_lx5au")
-centered = false
-
-[node name="player half" type="Area2D" parent="." unique_id=2066712921]
+[node name="PlayerHalf" type="Area2D" parent="." unique_id=2066712921]
 collision_layer = 2
 
-[node name="collision" type="CollisionShape2D" parent="player half" unique_id=834504251]
+[node name="Collision" type="CollisionShape2D" parent="PlayerHalf" unique_id=834504251]
 position = Vector2(960, 811)
 shape = SubResource("RectangleShape2D_lx5au")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1445069946]
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.60948634, 0.6363908, 0.66921014, 1)
+
+[node name="Divider" type="ColorRect" parent="." unique_id=1219559550]
+z_index = -2
+offset_top = 539.0
+offset_right = 1920.0
+offset_bottom = 543.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+color = Color(0.19530237, 0.21014848, 0.23241755, 1)

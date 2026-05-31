@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d4fvcjnvy5b4b"]
+
+[ext_resource type="Theme" uid="uid://dby0pgpxyu4dg" path="res://main_theme.tres" id="1_5x102"]
+[ext_resource type="Script" uid="uid://crgl6xsyc4kae" path="res://scenes/card_ui/card_ui.gd" id="2_e1hm3"]
+[ext_resource type="Script" uid="uid://bptl4iggw6p8m" path="res://scenes/card_ui/card_state_machine.gd" id="3_psaan"]
+[ext_resource type="Script" uid="uid://c82ci3yrfclvs" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_orrkt"]
+[ext_resource type="Script" uid="uid://drdfwrtmyjb67" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_yxx8x"]
+[ext_resource type="Script" uid="uid://bthslaf5n4vjm" path="res://scenes/card_ui/card_states/card_draggin_state.gd" id="6_ci03s"]
+[ext_resource type="Script" uid="uid://bjrwl521ktari" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_js3ux"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x102"]
+size = Vector2(125, 175)
+
+[node name="CardUi" type="Control" unique_id=485687244]
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1795.0
+offset_bottom = -905.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5x102")
+script = ExtResource("2_e1hm3")
+
+[node name="Color" type="ColorRect" parent="." unique_id=1108447637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.106705345, 0.3682727, 0.24464852, 1)
+
+[node name="State" type="Label" parent="." unique_id=1587189910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "state"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropPointDetector" type="Area2D" parent="." unique_id=443792955]
+collision_mask = 2
+monitorable = false
+
+[node name="Collision" type="CollisionShape2D" parent="DropPointDetector" unique_id=1657480372]
+position = Vector2(62.5, 87.5)
+shape = SubResource("RectangleShape2D_5x102")
+
+[node name="CardStateMachine" type="Node" parent="." unique_id=1344198965 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_psaan")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine" unique_id=1797429321]
+script = ExtResource("4_orrkt")
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine" unique_id=640045373]
+script = ExtResource("5_yxx8x")
+state = 1
+
+[node name="CardDragginState" type="Node" parent="CardStateMachine" unique_id=1676002009]
+script = ExtResource("6_ci03s")
+state = 2
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine" unique_id=625197489]
+script = ExtResource("7_js3ux")
+state = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
