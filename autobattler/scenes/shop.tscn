@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcx6onnvjvpwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx5au"]
-size = Vector2(1920, 540)
+size = Vector2(1920, 450)
 
 [node name="Shop" type="Node2D" unique_id=1545939292]
 
@@ -9,13 +9,13 @@ size = Vector2(1920, 540)
 collision_layer = 2
 
 [node name="Collision" type="CollisionShape2D" parent="PlayerHalf" unique_id=834504251]
-position = Vector2(960, 811)
+position = Vector2(960, 855)
 shape = SubResource("RectangleShape2D_lx5au")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1445069946]
 z_index = -2
 offset_right = 1920.0
-offset_bottom = 1081.0
+offset_bottom = 1080.0
 color = Color(0.60948634, 0.6363908, 0.66921014, 1)
 
 [node name="Divider" type="ColorRect" parent="." unique_id=1219559550]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://crgl6xsyc4kae" path="res://scenes/card_ui/card_ui.gd" id="2_e1hm3"]
 [ext_resource type="Script" uid="uid://bptl4iggw6p8m" path="res://scenes/card_ui/card_state_machine.gd" id="3_psaan"]
 [ext_resource type="Script" uid="uid://c82ci3yrfclvs" path="res://scenes/card_ui/card_states/card_base_state.gd" id="4_orrkt"]
-[ext_resource type="Script" uid="uid://drdfwrtmyjb67" path="res://scenes/card_ui/card_states/card_clicked_state.gd" id="5_yxx8x"]
+[ext_resource type="Script" uid="uid://drdfwrtmyjb67" path="res://scenes/card_ui/card_states/card_pressed_state.gd" id="5_yxx8x"]
 [ext_resource type="Script" uid="uid://bthslaf5n4vjm" path="res://scenes/card_ui/card_states/card_draggin_state.gd" id="6_ci03s"]
 [ext_resource type="Script" uid="uid://bjrwl521ktari" path="res://scenes/card_ui/card_states/card_released_state.gd" id="7_js3ux"]
 
@@ -75,3 +75,5 @@ state = 3
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

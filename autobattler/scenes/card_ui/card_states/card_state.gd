@@ -3,7 +3,7 @@ extends Node
 
 enum State {
 	BASE,
-	CLICKED,
+	PRESSED,
 	DRAGGING,
 	RELEASED,
 	}
