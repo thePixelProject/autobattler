@@ -13,9 +13,9 @@ func init(card: CardUI) -> void:
 			child.transition_requested.connect(_on_transition_requested)
 			child.card_ui = card
 			
-		if initial_state:
-			initial_state.enter()
-			current_state = initial_state
+	if initial_state:
+		current_state = initial_state
+		current_state.enter()
 			
 func on_input(event: InputEvent) -> void:
 	if current_state:
@@ -43,6 +43,6 @@ func _on_transition_requested(from: CardState, to: CardState.State) -> void:
 	
 	if current_state:
 		current_state.exit()
-	
-	new_state.enter()
+
 	current_state = new_state
+	new_state.enter()

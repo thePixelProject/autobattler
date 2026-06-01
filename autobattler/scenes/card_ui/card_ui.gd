@@ -3,7 +3,7 @@ extends Control
 
 signal reparent_requested(which_card_ui: CardUI)
 
-var home_container: Node
+var original_parent: Node
 
 @onready var color: ColorRect = $Color
 @onready var state: Label = $State
@@ -34,3 +34,7 @@ func _on_drop_point_detector_area_entered(area: Area2D) -> void:
 
 func _on_drop_point_detector_area_exited(area: Area2D) -> void:
 	targets.erase(area)
+	
+func return_to_origin() -> void:
+	if original_parent:
+		reparent(original_parent)

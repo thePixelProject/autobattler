@@ -4,8 +4,7 @@ func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 
-	card_ui.reparent_requested.emit(card_ui)
-	card_ui.color.color = Color.BROWN
+	card_ui.color.color = Color.WEB_MAROON
 	card_ui.state.text = "BASE"
 	card_ui.pivot_offset = Vector2.ZERO
 	
